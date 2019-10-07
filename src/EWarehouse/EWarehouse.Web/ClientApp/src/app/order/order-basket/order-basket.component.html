@@ -1,0 +1,19 @@
+<h6>
+  Basket of order
+</h6>
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Count</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let orderedProduct of orderedProducts">
+      <td>{{orderedProduct.name}}</td>
+      <td>{{orderedProduct.count}}</td>
+      <td><button class='btn btn-primary' (click)="onDeleteBook(orderedProduct)">Delete</button></td>
+    </tr>
+  </tbody>
+</table>

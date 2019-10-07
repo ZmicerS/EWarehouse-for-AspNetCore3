@@ -1,0 +1,30 @@
+ <div class="nav-item" [routerLinkActive]='["link-active"]'>
+  <a class="nav-link text-dark" [routerLink]='["./orderaccept"]'>Accept order</a>
+ </div>
+<app-order-basket [orderedProducts]="selectedBooks"  (deleteSelectedBook)='deleteSelectedBook($event)' ></app-order-basket>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Cover</th>
+      <th>Name</th>
+      <th>Author</th>
+      <th>ISBN</th>
+      <th>Price</th>
+      <th>Count</th>  
+      <th>Content</th>       
+      <th colspan="2">Actions</th>      
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let book of books">            
+      <td><img src="store/getcover/{{ book.id }}" width="20" height="20" alt="This is direct request" /></td>             
+      <td>{{ book.name }}</td>
+      <td>{{ book.author }}</td>
+      <td>{{ book.isbn }}</td>
+      <td>{{book.price}}</td>
+      <td>{{book.quantity}}</td>
+      <td>{{book.content}}</td>
+      <td><app-order-select [bookId]='book.id' [productCount]=1 (productCountChange)='changeProductCount($event)'></app-order-select></td>      
+    </tr>
+  </tbody>
+</table>

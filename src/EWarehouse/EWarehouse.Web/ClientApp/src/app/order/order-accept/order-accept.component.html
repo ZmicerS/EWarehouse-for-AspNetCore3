@@ -1,0 +1,13 @@
+<div class="form-group row">
+  <label for="adr" class="col-sm-2 col-form-label">delivery address</label>
+  <div class="col-sm-10">
+    <textarea class="form-control" name="adr" id="adr" rows="5" placeholder="address of delivery"></textarea>
+  </div>
+</div>
+<br />
+<div class="form-group row">
+  <div class="col-sm-10 offset-sm-2">
+    <button type="submit" class="btn btn-primary" (click)="onAccept()">Accept</button>
+    <button class="btn btn-secondary" (click)="onCancel()">Cancel</button>
+  </div>
+</div>

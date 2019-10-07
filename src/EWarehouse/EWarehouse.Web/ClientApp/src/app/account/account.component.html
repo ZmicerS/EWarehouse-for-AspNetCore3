@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-lg-1" *ngIf="isLogged()">
+    <a class="btn btn-info" (click)="onLogout()">Logout</a>
+  </div>
+  <div class="col-lg-6">
+    <app-login></app-login>
+  </div>
+  <div class="col-lg-1">
+    <a class="nav-link text-dark" [routerLink]='["./register"]'>Register</a>
+  </div>
+  <div *ngIf="permission" class="col-lg-2">
+    <a class="nav-link text-dark" [routerLink]='["./list"]'>User list</a>
+  </div>
+</div>

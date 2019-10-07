@@ -1,0 +1,39 @@
+<div class="jumbotron">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label>Email</label>
+              <input type="text" formControlName="email" class="form-control" />
+              <div *ngIf="isControlInvalid('email') || isControlNotFilled('email')" class="alert alert-danger">
+                <div class="error" *ngIf="isControlInvalid('email')">Email must be a valid email address</div>
+                <div class="error" *ngIf="isControlNotFilled('email')">Email is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" formControlName="password" class="form-control" />
+              <div *ngIf="isControlInvalid('password') || isControlNotFilled('password')" class="alert alert-danger">
+                <div class="error" *ngIf="isControlInvalid('password')">Password must be at least 4 characters</div>
+                <div class="error" *ngIf="isControlNotFilled('password')">Password is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Confirm Password</label>
+              <input type="password" formControlName="confirmPassword" class="form-control" />
+              <div *ngIf="registerForm.controls['confirmPassword'].hasError('ConfirmPassword')" class="alert alert-danger">
+                <div class="error">Passsword and ConfirmPassword didn't match.</div>
+              </div>
+            </div>
+            <div class="form-group">
+             <button [disabled]="registerForm.invalid || submitting" class="form-control btn btn-primary" type="submit">Register</button> 
+            </div>
+            <div class="form-group">
+              <button [disabled]="submitting" class="form-control btn btn-primary" (click)="onCancel()">Cancel</button>
+            </div>
+          </form>       
+        </div>
+      </div>
+    </div>
+  </div>

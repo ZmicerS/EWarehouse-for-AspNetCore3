@@ -1,0 +1,6 @@
+<div class="error-container">
+   <div *ngIf="routeParams?.error">
+    <h4>ERROR {{ routeParams?.error }}</h4>
+   <div>   <a class="nav-link text-dark" [routerLink]='["/"]'>Home</a>    </div>  
+  </div>
+</div>
